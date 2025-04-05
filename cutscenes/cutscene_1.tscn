@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://r6b415csogn6"]
+[gd_scene load_steps=22 format=4 uid="uid://r6b415csogn6"]
 
 [ext_resource type="Material" path="res://characters/Reporter/new_standard_material_3d.tres" id="2_toxe6"]
 [ext_resource type="PackedScene" uid="uid://dgicm4yvmv6cx" path="res://characters/Reporter/John_Talking.glb" id="4_dtrb2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdrdwj7cdk0tj" path="res://cutscenes/Screenshot from 2025-04-05 14-45-03.png" id="7_wjcad"]
 [ext_resource type="Script" uid="uid://becl4w7bt63a8" path="res://scripts/dialog_activator.gd" id="8_toxe6"]
 [ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="8_x1fsy"]
+[ext_resource type="Script" uid="uid://dtmbkjiuree58" path="res://scripts/scene_changer.gd" id="9_x1fsy"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bgukx"]
 resource_name = "John_Talking_Cubemesh"
@@ -234,5 +235,11 @@ dialogic_timeline = "cutscene1"
 metadata/_custom_type_script = "uid://becl4w7bt63a8"
 
 [node name="Canvas" parent="." instance=ExtResource("8_x1fsy")]
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("9_x1fsy")
+nextScene = "uid://cm3nglnbu6odo"
+requiredX = 1
+metadata/_custom_type_script = "uid://dtmbkjiuree58"
 
 [editable path="John_Talking"]

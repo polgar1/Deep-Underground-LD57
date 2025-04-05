@@ -8,7 +8,7 @@ func _ready() -> void:
 func Transition(nextScene : String):
 	await get_tree().process_frame
 	play("fadeIn")
-	var scene = load(nextScene)
+	scene = load(nextScene)
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fadeIn":

@@ -97,6 +97,7 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_xynav")
 }
+speed_scale = 0.5
 script = ExtResource("1_xtb4j")
 
 [node name="VHS" type="CanvasLayer" parent="."]
