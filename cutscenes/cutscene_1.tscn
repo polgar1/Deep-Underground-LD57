@@ -1,14 +1,13 @@
-[gd_scene load_steps=24 format=4 uid="uid://r6b415csogn6"]
+[gd_scene load_steps=21 format=4 uid="uid://r6b415csogn6"]
 
-[ext_resource type="Shader" uid="uid://bprwswxvj3qse" path="res://0shaders/VHS.gdshader" id="2_2pbgo"]
 [ext_resource type="Material" path="res://characters/Reporter/new_standard_material_3d.tres" id="2_toxe6"]
-[ext_resource type="Shader" uid="uid://b4wvptemtvwrr" path="res://0shaders/Realistic_CRT.gdshader" id="3_2pbgo"]
 [ext_resource type="PackedScene" uid="uid://dgicm4yvmv6cx" path="res://characters/Reporter/John_Talking.glb" id="4_dtrb2"]
 [ext_resource type="Texture2D" uid="uid://cvc4p2dyt22cg" path="res://characters/Reporter/John_Base_male_casualsuit01_diffuse.png" id="4_lx76b"]
 [ext_resource type="Script" uid="uid://wmbayx1nl7yg" path="res://scripts/play_anim_on_ready.gd" id="5_528a0"]
 [ext_resource type="Texture2D" uid="uid://c57vjuc3n2dbt" path="res://cutscenes/ChannelLogo.png" id="5_x1fsy"]
 [ext_resource type="Texture2D" uid="uid://cdrdwj7cdk0tj" path="res://cutscenes/Screenshot from 2025-04-05 14-45-03.png" id="7_wjcad"]
 [ext_resource type="Script" uid="uid://becl4w7bt63a8" path="res://scripts/dialog_activator.gd" id="8_toxe6"]
+[ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="8_x1fsy"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bgukx"]
 resource_name = "John_Talking_Cubemesh"
@@ -135,30 +134,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ddl0"]
-shader = ExtResource("2_2pbgo")
-shader_parameter/wiggle = 0.03
-shader_parameter/wiggle_speed = 25.0
-shader_parameter/smear = 1.0
-shader_parameter/blur_samples = 15
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dtrb2"]
-shader = ExtResource("3_2pbgo")
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/scan_line_amount = 0.0
-shader_parameter/warp_amount = 0.381
-shader_parameter/noise_amount = 0.03
-shader_parameter/interference_amount = 0.2
-shader_parameter/grille_amount = 0.0
-shader_parameter/grille_size = 1.0
-shader_parameter/vignette_amount = 0.6
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/aberation_amount = 0.5
-shader_parameter/roll_line_amount = 0.0
-shader_parameter/roll_speed = -8.0
-shader_parameter/scan_line_strength = -8.0
-shader_parameter/pixel_strength = -2.0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wjcad"]
 albedo_color = Color(0.678944, 0.678944, 0.678944, 1)
 
@@ -223,20 +198,6 @@ anim_name = "Armature|mixamo_com|Layer0"
 position = Vector2(329, 236)
 texture = ExtResource("5_x1fsy")
 
-[node name="VHS" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_1ddl0")
-offset_right = 679.0
-offset_bottom = 492.0
-mouse_filter = 2
-
-[node name="CRT" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_dtrb2")
-offset_left = -21.0
-offset_top = -21.0
-offset_right = 725.0
-offset_bottom = 521.0
-mouse_filter = 2
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.98458, 0.174937, 0, -0.174937, 0.98458, 0.0887482, 1.73853, 2.44132)
 
@@ -271,5 +232,7 @@ script = ExtResource("8_toxe6")
 timer = 1.0
 dialogic_timeline = "cutscene1"
 metadata/_custom_type_script = "uid://becl4w7bt63a8"
+
+[node name="Canvas" parent="." instance=ExtResource("8_x1fsy")]
 
 [editable path="John_Talking"]
