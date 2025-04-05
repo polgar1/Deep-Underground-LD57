@@ -1,0 +1,6 @@
+Reporter: You're looking for a new job? You're in luck! There's a new, special mine in [REDACTED]!
+Reporter: They're looking for strong men, for discovering caves, and extracting ores from underground.
+Reporter: You get $2.000 per month, so don't hesitate, this is the highest paying miner position in the country.
+Reporter: The new mine was founded as a result of a cooperation between the government and the famous video game developer company, Anomaly Group.
+Reporter: Some rumors say that Anomaly Group's main purpose is not game development, and it's just a cover-up, but we don't believe in stupid rumors, right?
+do Global.setX(1)

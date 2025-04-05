@@ -166,7 +166,7 @@ func _ready() -> void:
 ## For argument info, checkout [method start_timeline].
 ## -> returns the layout node
 func start(timeline:Variant, label:Variant="") -> Node:
-	await get_tree().create_timer(0.001).timeout
+	await get_tree().process_frame
 	# If we don't have a style subsystem, default to just start_timeline()
 	if not has_subsystem('Styles'):
 		printerr("[Dialogic] You called Dialogic.start() but the Styles subsystem is missing!")
