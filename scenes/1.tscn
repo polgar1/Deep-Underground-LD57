@@ -1,23 +1,53 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm3nglnbu6odo"]
+[gd_scene load_steps=11 format=3 uid="uid://cm3nglnbu6odo"]
 
 [ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="1_me8dt"]
 [ext_resource type="PackedScene" uid="uid://ci4eyd0kgfnpq" path="res://characters/Player/player.tscn" id="2_gafq4"]
+[ext_resource type="Texture2D" uid="uid://csmnm6pwqhv68" path="res://textures/Rock031_4K_Color.jpg" id="3_xx04v"]
+[ext_resource type="Texture2D" uid="uid://drht4sb51nqw4" path="res://textures/Rock031_4K_NormalGL.jpg" id="4_i8ylg"]
+[ext_resource type="Texture2D" uid="uid://dlcegca6gdfk" path="res://textures/Rock031_4K_Roughness.png" id="5_8xfph"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_fes4b"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xx04v"]
+sky_top_color = Color(0.076868, 0.00355604, 0.0124315, 1)
+
+[sub_resource type="Sky" id="Sky_i8ylg"]
+sky_material = SubResource("ProceduralSkyMaterial_xx04v")
+
+[sub_resource type="Environment" id="Environment_8xfph"]
+background_mode = 2
+sky = SubResource("Sky_i8ylg")
+ambient_light_source = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hh8q"]
+albedo_texture = ExtResource("3_xx04v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6x81b"]
+albedo_texture = ExtResource("3_xx04v")
+roughness = 0.29
+roughness_texture = ExtResource("5_8xfph")
+normal_enabled = true
+normal_scale = -16.0
+normal_texture = ExtResource("4_i8ylg")
+uv1_scale = Vector3(1, 20, 1)
+texture_filter = 0
 
 [node name="1" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.901077, -0.424953, 0.0864577, 0, 0.199368, 0.979925, -0.433659, 0.882988, -0.179646, 0, 0, 0)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8xfph")
 
 [node name="Canvas" parent="." instance=ExtResource("1_me8dt")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 8.43513, 0, 0, 0, 2.48286, 0, 0, 0)
-mesh = SubResource("BoxMesh_fes4b")
-
 [node name="Player" parent="." instance=ExtResource("2_gafq4")]
-transform = Transform3D(-0.12419, 0, 0.992258, 0, 1, 0, -0.992258, 0, -0.12419, 1.49786, 0, 0.046232)
+transform = Transform3D(-0.21349, 0, 0.976945, 0, 1, 0, -0.976945, 0, -0.21349, 1.5006, -4.5347, 0.046232)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39282, -1210.32, -3.46622)
+size = Vector3(5.78564, 2426.95, 17.7725)
+material = SubResource("StandardMaterial3D_8hh8q")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11994, 1151.4, 3.44449)
+operation = 2
+radius = 0.853027
+height = 125.175
+material = SubResource("StandardMaterial3D_6x81b")
