@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci4eyd0kgfnpq"]
+
+[ext_resource type="PackedScene" uid="uid://dypt7n3mxqab" path="res://characters/Player/Player.glb" id="1_mqu6j"]
+[ext_resource type="Script" uid="uid://drosgfq5ddi1e" path="res://scripts/camera_3d.gd" id="2_8gp0o"]
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mqu6j")]
+transform = Transform3D(-0.000296756, 0, -1, 0, 1, 0, 1, 0, -0.000296756, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Player/Armature" index="0"]
+bones/1/rotation = Quaternion(0.53278, -0.572444, -0.337782, -0.523791)
+bones/2/rotation = Quaternion(-0.586958, 0.0147848, -0.167834, 0.791893)
+bones/3/rotation = Quaternion(-0.347916, 0.523959, 0.296333, 0.718755)
+bones/4/rotation = Quaternion(-0.691386, -0.00437508, 0.0612176, 0.719874)
+bones/6/position = Vector3(-0.898793, -0.398808, 0.0195986)
+bones/7/position = Vector3(-0.907094, -0.09607, -0.298145)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.95412, -0.299424, 0, 0.299424, 0.95412, 0, 0.666388, -0.0569834)
+script = ExtResource("2_8gp0o")
+sensitivity = 0.5
+min_yaw = -70.0
+max_yaw = 70.0
+
+[editable path="Player"]

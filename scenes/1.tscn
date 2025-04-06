@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://cm3nglnbu6odo"]
+[gd_scene load_steps=4 format=3 uid="uid://cm3nglnbu6odo"]
+
+[ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="1_me8dt"]
+[ext_resource type="PackedScene" uid="uid://ci4eyd0kgfnpq" path="res://characters/Player/player.tscn" id="2_gafq4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fes4b"]
 
 [node name="1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.901077, -0.424953, 0.0864577, 0, 0.199368, 0.979925, -0.433659, 0.882988, -0.179646, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="Canvas" parent="." instance=ExtResource("1_me8dt")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 8.43513, 0, 0, 0, 2.48286, 0, 0, 0)
+mesh = SubResource("BoxMesh_fes4b")
+
+[node name="Player" parent="." instance=ExtResource("2_gafq4")]
+transform = Transform3D(-0.12419, 0, 0.992258, 0, 1, 0, -0.992258, 0, -0.12419, 1.49786, 0, 0.046232)
