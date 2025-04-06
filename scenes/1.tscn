@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm3nglnbu6odo"]
+[gd_scene load_steps=20 format=3 uid="uid://cm3nglnbu6odo"]
 
 [ext_resource type="AudioStream" uid="uid://bhcaq6n0s0jsg" path="res://audio/dripping-water-in-cave-114694.mp3" id="1_8xfph"]
 [ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="1_me8dt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://csmnm6pwqhv68" path="res://textures/Rock031_4K_Color.jpg" id="3_xx04v"]
 [ext_resource type="Texture2D" uid="uid://drht4sb51nqw4" path="res://textures/Rock031_4K_NormalGL.jpg" id="4_i8ylg"]
 [ext_resource type="Texture2D" uid="uid://dlcegca6gdfk" path="res://textures/Rock031_4K_Roughness.png" id="5_8xfph"]
+[ext_resource type="Script" uid="uid://becl4w7bt63a8" path="res://scripts/dialog_activator.gd" id="8_8hh8q"]
 
 [sub_resource type="Animation" id="Animation_6x81b"]
 resource_name = "water"
@@ -45,6 +46,46 @@ sky = SubResource("Sky_i8ylg")
 ambient_light_source = 2
 tonemap_mode = 3
 
+[sub_resource type="Animation" id="Animation_2bibm"]
+resource_name = "stuff"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayText/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-243, -7), Vector2(71, 175), Vector2(383, 209), Vector2(964, 209)]
+}
+
+[sub_resource type="Animation" id="Animation_i3c8t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DayText/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-243, -7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn15i"]
+_data = {
+&"RESET": SubResource("Animation_i3c8t"),
+&"stuff": SubResource("Animation_2bibm")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xfph"]
+size = Vector3(1, 1, 2.27332)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hh8q"]
 albedo_texture = ExtResource("3_xx04v")
 
@@ -70,10 +111,41 @@ anim_name = "water"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
 volume_db = -11.243
 
+[node name="Quota" type="Label" parent="."]
+offset_left = 964.0
+offset_top = 209.0
+offset_right = 1099.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 50
+text = "Day 1"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8xfph")
 
 [node name="Canvas" parent="." instance=ExtResource("1_me8dt")]
+
+[node name="DayText" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hn15i")
+}
+script = ExtResource("2_8hh8q")
+anim_name = "stuff"
+timer = 1.0
+
+[node name="Label" type="Label" parent="DayText"]
+offset_left = 964.0
+offset_top = 209.0
+offset_right = 1099.0
+offset_bottom = 278.0
+theme_override_font_sizes/font_size = 50
+text = "Day 1"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(-0.21349, 0, 0.976945, 0, 1, 0, -0.976945, 0, -0.21349, 1.5006, -3.35901, 0.046232)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0.794448, 0.0624387)
+shape = SubResource("BoxShape3D_8xfph")
 
 [node name="Player" parent="." instance=ExtResource("2_gafq4")]
 transform = Transform3D(-0.21349, 0, 0.976945, 0, 1, 0, -0.976945, 0, -0.21349, 1.5006, -4.5347, 0.046232)
@@ -89,3 +161,9 @@ operation = 2
 radius = 0.853027
 height = 125.175
 material = SubResource("StandardMaterial3D_6x81b")
+
+[node name="DialogActivator" type="Node" parent="."]
+script = ExtResource("8_8hh8q")
+timer = 6.0
+dialogic_timeline = "day1"
+metadata/_custom_type_script = "uid://becl4w7bt63a8"

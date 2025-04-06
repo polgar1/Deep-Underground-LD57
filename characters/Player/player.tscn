@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://ci4eyd0kgfnpq"]
+[gd_scene load_steps=19 format=4 uid="uid://ci4eyd0kgfnpq"]
 
 [ext_resource type="Script" uid="uid://cwd6sfh3elj28" path="res://scripts/player.gd" id="1_yrol7"]
 [ext_resource type="Script" uid="uid://drosgfq5ddi1e" path="res://scripts/camera_3d.gd" id="2_8gp0o"]
@@ -157,6 +157,15 @@ material = SubResource("ShaderMaterial_kidiw")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_kidiw"]
+size = Vector3(0.435913, 1, 0.738159)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kidiw"]
+albedo_color = Color(0.37401, 0.166626, 0.0384048, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fg313"]
+material = SubResource("StandardMaterial3D_kidiw")
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_yrol7")
 
@@ -257,3 +266,11 @@ mesh = SubResource("QuadMesh_fg313")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.437645)
 stream = ExtResource("7_kidiw")
 volume_db = -16.762
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00604248, 0, -0.13092)
+shape = SubResource("BoxShape3D_kidiw")
+
+[node name="Rope" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.01, 0, 0, 0, 5, 0, 0, 0, 0.01, 0.157089, 2.6058, -0.0217789)
+mesh = SubResource("BoxMesh_fg313")

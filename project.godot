@@ -23,10 +23,12 @@ Global="*res://scripts/Global.gd"
 [dialogic]
 
 directories/dch_directory={
+"Radio": "res://dialogic/Radio.dch",
 "Reporter": "res://dialogic/Reporter.dch"
 }
 directories/dtl_directory={
-"cutscene1": "res://dialogic/cutscene1.dtl"
+"cutscene1": "res://dialogic/cutscene1.dtl",
+"day1": "res://dialogic/day1.dtl"
 }
 
 [display]
