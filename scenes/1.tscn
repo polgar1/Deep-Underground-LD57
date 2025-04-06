@@ -1,10 +1,37 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm3nglnbu6odo"]
+[gd_scene load_steps=15 format=3 uid="uid://cm3nglnbu6odo"]
 
+[ext_resource type="AudioStream" uid="uid://bhcaq6n0s0jsg" path="res://audio/dripping-water-in-cave-114694.mp3" id="1_8xfph"]
 [ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="1_me8dt"]
+[ext_resource type="Script" uid="uid://wmbayx1nl7yg" path="res://scripts/play_anim_on_ready.gd" id="2_8hh8q"]
 [ext_resource type="PackedScene" uid="uid://ci4eyd0kgfnpq" path="res://characters/Player/player.tscn" id="2_gafq4"]
 [ext_resource type="Texture2D" uid="uid://csmnm6pwqhv68" path="res://textures/Rock031_4K_Color.jpg" id="3_xx04v"]
 [ext_resource type="Texture2D" uid="uid://drht4sb51nqw4" path="res://textures/Rock031_4K_NormalGL.jpg" id="4_i8ylg"]
 [ext_resource type="Texture2D" uid="uid://dlcegca6gdfk" path="res://textures/Rock031_4K_Roughness.png" id="5_8xfph"]
+
+[sub_resource type="Animation" id="Animation_6x81b"]
+resource_name = "water"
+length = 18.7273
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 4.8932,
+"start_offset": 0.0,
+"stream": ExtResource("1_8xfph")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2bibm"]
+_data = {
+&"water": SubResource("Animation_6x81b")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xx04v"]
 sky_top_color = Color(0.076868, 0.00355604, 0.0124315, 1)
@@ -31,6 +58,16 @@ uv1_scale = Vector3(1, 20, 1)
 texture_filter = 0
 
 [node name="1" type="Node3D"]
+
+[node name="Background" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2bibm")
+}
+script = ExtResource("2_8hh8q")
+anim_name = "water"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+volume_db = -11.243
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8xfph")

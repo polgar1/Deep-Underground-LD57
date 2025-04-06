@@ -164,7 +164,7 @@ bones/2/parent = 1
 bones/2/rest = Transform3D(0.974799, 0.189097, 0.118359, -0.214484, 0.648533, 0.730344, 0.0613457, -0.737324, 0.672748, -2.23517e-08, 0.499627, 9.31323e-09)
 bones/2/enabled = true
 bones/2/position = Vector3(-2.23517e-08, 0.499627, 9.31323e-09)
-bones/2/rotation = Quaternion(-0.404202, 0.0157018, -0.111148, 0.907755)
+bones/2/rotation = Quaternion(-0.404202, 0.0157018, -0.111148, 0.907756)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "LegRight1"
 bones/3/parent = -1
@@ -178,7 +178,7 @@ bones/4/parent = 3
 bones/4/rest = Transform3D(0.983719, -0.122804, -0.131211, 0.130996, -0.00985634, 0.991334, -0.123033, -0.992382, 0.00639094, 2.21189e-08, 0.514549, 2.98023e-08)
 bones/4/enabled = true
 bones/4/position = Vector3(2.21189e-08, 0.514549, 2.98023e-08)
-bones/4/rotation = Quaternion(-0.704838, -0.00290596, 0.0901781, 0.703607)
+bones/4/rotation = Quaternion(-0.704838, -0.00290597, 0.0901781, 0.703607)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Bone.009"
 bones/5/parent = -1
@@ -214,11 +214,11 @@ playback_default_blend_time = 2.0
 speed_scale = 0.543
 
 [node name="Flashlight" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.95412, -0.299424, 0, 0.299424, 0.95412, 0, 0.666388, -0.0569834)
+transform = Transform3D(1, 0, 0, 0, 0.95412, -0.299424, 0, 0.299424, 0.95412, 0.0504707, 0.666388, -0.0569834)
 script = ExtResource("2_j7dd2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.95412, -0.299424, 0, 0.299424, 0.95412, 0, 0.666388, -0.0569834)
+transform = Transform3D(1, 0, 0, 0, 0.95412, -0.299424, 0, 0.299424, 0.95412, 0.0532971, 0.666388, -0.0569834)
 script = ExtResource("2_8gp0o")
 sensitivity = 0.5
 min_yaw = -70.0
