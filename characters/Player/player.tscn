@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://ci4eyd0kgfnpq"]
+[gd_scene load_steps=15 format=4 uid="uid://ci4eyd0kgfnpq"]
 
 [ext_resource type="Script" uid="uid://cwd6sfh3elj28" path="res://scripts/player.gd" id="1_yrol7"]
 [ext_resource type="Script" uid="uid://drosgfq5ddi1e" path="res://scripts/camera_3d.gd" id="2_8gp0o"]
 [ext_resource type="Texture2D" uid="uid://c314b3pjm0xtx" path="res://characters/Player/Player_Cube.png" id="2_b405y"]
 [ext_resource type="Script" uid="uid://dlcybpfa6v5qj" path="res://scripts/flashlight.gd" id="2_j7dd2"]
 [ext_resource type="Texture2D" uid="uid://orgynubsnfu0" path="res://characters/Player/Player_Material Base Color.png" id="3_pdv5a"]
+[ext_resource type="Shader" uid="uid://dvset5k1s4taq" path="res://0shaders/Dithering.gdshader" id="6_pdv5a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm5g7"]
 resource_name = "Material.001"
@@ -135,6 +136,26 @@ _data = {
 &"ArmatureAction": SubResource("Animation_v11kf")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kidiw"]
+render_priority = 0
+shader = ExtResource("6_pdv5a")
+shader_parameter/enable_fog = false
+shader_parameter/fog_color = Color(0, 0, 0, 1)
+shader_parameter/noise_color = Color(0, 0, 0, 1)
+shader_parameter/fog_distance = 100.0
+shader_parameter/fog_fade_range = 50.0
+shader_parameter/enable_noise = false
+shader_parameter/noise_time_fac = 4.0
+shader_parameter/enable_color_limitation = true
+shader_parameter/color_levels = 32
+shader_parameter/enable_dithering = true
+shader_parameter/dither_strength = 0.3
+
+[sub_resource type="QuadMesh" id="QuadMesh_fg313"]
+material = SubResource("ShaderMaterial_kidiw")
+flip_faces = true
+size = Vector2(2, 2)
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_yrol7")
 
@@ -223,3 +244,7 @@ script = ExtResource("2_8gp0o")
 sensitivity = 0.5
 min_yaw = -70.0
 max_yaw = 70.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00495183, -0.015779)
+mesh = SubResource("QuadMesh_fg313")
