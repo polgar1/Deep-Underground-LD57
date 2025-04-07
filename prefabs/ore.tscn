@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcgyslepfxrqb"]
+
+[ext_resource type="Script" uid="uid://bg7ck7cipxmaw" path="res://scripts/ore.gd" id="1_3me0e"]
+[ext_resource type="AudioStream" uid="uid://pb7xoe5dylk8" path="res://audio/key-get-39925.mp3" id="2_f3cfw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3cfw"]
+albedo_color = Color(0.142027, 2.0985e-05, 0.561541, 1)
+emission_enabled = true
+emission = Color(0.000649765, 0.218371, 0.99999, 1)
+emission_energy_multiplier = 1.65
+
+[sub_resource type="SphereMesh" id="SphereMesh_i0qvd"]
+material = SubResource("StandardMaterial3D_f3cfw")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_luyi8"]
+radius = 0.253038
+
+[node name="Ore" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_3me0e")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("SphereMesh_i0qvd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_luyi8")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_f3cfw")
+volume_db = 80.0

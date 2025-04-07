@@ -23,6 +23,10 @@ func _process(delta: float) -> void:
 		if not movement_audio.playing:
 			movement_audio.play()
 		anim.play("ArmatureAction")
+		if velocity.y > 0:
+			anim.speed_scale = 0.5
+		else:
+			anim.speed_scale = -0.5
 	else:
 		movement_audio.stop()
 		anim.pause()

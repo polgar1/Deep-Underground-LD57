@@ -168,6 +168,7 @@ albedo_color = Color(0.37401, 0.166626, 0.0384048, 1)
 material = SubResource("StandardMaterial3D_kidiw")
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 4
 script = ExtResource("1_yrol7")
 
 [node name="Player" type="Node3D" parent="."]
@@ -243,7 +244,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_tuxpl")
 }
 playback_default_blend_time = 2.0
-speed_scale = 0.543
+speed_scale = 0.5
 
 [node name="Flashlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.95412, -0.299424, 0, 0.299424, 0.95412, 0.0504707, 0.666388, -0.0569834)
