@@ -1,7 +1,7 @@
 extends Node
 
+#variable used for triggering events
 var x : int = 0
-
 func setX(value : int):
 	x = value
 

@@ -24,11 +24,14 @@ Global="*res://scripts/Global.gd"
 
 directories/dch_directory={
 "Radio": "res://dialogic/Radio.dch",
-"Reporter": "res://dialogic/Reporter.dch"
+"Reporter": "res://dialogic/Reporter.dch",
+"You": "res://dialogic/You.dch"
 }
 directories/dtl_directory={
 "cutscene1": "res://dialogic/cutscene1.dtl",
-"day1": "res://dialogic/day1.dtl"
+"day1": "res://dialogic/day1.dtl",
+"day1finish": "res://dialogic/day1finish.dtl",
+"death": "res://dialogic/death.dtl"
 }
 
 [display]
