@@ -101,6 +101,13 @@ libraries = {
 speed_scale = 0.5
 script = ExtResource("1_xtb4j")
 
+[node name="Cursor" type="ColorRect" parent="TransitionLayer" groups=["cursor"]]
+offset_left = 319.0
+offset_top = 239.0
+offset_right = 323.0
+offset_bottom = 243.0
+mouse_filter = 2
+
 [node name="VHS" type="CanvasLayer" parent="."]
 
 [node name="VHS" type="ColorRect" parent="VHS"]
