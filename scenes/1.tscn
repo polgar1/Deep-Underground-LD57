@@ -138,10 +138,10 @@ anim_name = "stuff"
 timer = 1.0
 
 [node name="Label" type="Label" parent="DayText"]
-offset_left = 964.0
-offset_top = 209.0
-offset_right = 1099.0
-offset_bottom = 278.0
+offset_left = -243.0
+offset_top = -7.0
+offset_right = -108.0
+offset_bottom = 62.0
 theme_override_font_sizes/font_size = 50
 text = "Day 1"
 
@@ -154,14 +154,15 @@ shape = SubResource("BoxShape3D_8xfph")
 
 [node name="Player" parent="." instance=ExtResource("2_gafq4")]
 transform = Transform3D(-0.21349, 0, 0.976945, 0, 1, 0, -0.976945, 0, -0.21349, 1.5006, -4.5347, 0.046232)
+speed = 50
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39282, -1210.32, -3.46622)
+transform = Transform3D(6.40966, 0, 0, 0, 1, 0, 0, 0, 1, 2.39282, -1210.32, -3.46622)
 size = Vector3(5.78564, 2426.95, 17.7725)
 material = SubResource("StandardMaterial3D_8hh8q")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11994, 1151.4, 3.44449)
+transform = Transform3D(0.156014, 0, 0, 0, 1, 0, 0, 0, 1, -0.174727, 1151.4, 3.44449)
 operation = 2
 radius = 0.853027
 height = 125.175
@@ -169,6 +170,22 @@ material = ExtResource("7_8hh8q")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSGBox3D/CSGCylinder3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.852782, 50.1581, 0)
+material = SubResource("StandardMaterial3D_hn15i")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGBox3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.852782, 43.9763, 0.690358)
+material = SubResource("StandardMaterial3D_hn15i")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="CSGBox3D/CSGCylinder3D"]
+transform = Transform3D(3.83331, 0, 0, 0, 1, 0, 0, 0, 1.55355, -2.22539, 38.4331, -0.407702)
+material = SubResource("StandardMaterial3D_hn15i")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="CSGBox3D/CSGCylinder3D"]
+transform = Transform3D(0.31803, 0, 1.54819, 0, 1, 0, -3.8201, 0, 0.12889, -1.16832, 32.0848, 0.291327)
+material = SubResource("StandardMaterial3D_hn15i")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="CSGBox3D/CSGCylinder3D"]
+transform = Transform3D(0.31803, -4.44089e-16, 1.54819, 3.6944, 0.254416, -0.124649, -0.971896, 0.967095, 0.0327916, -1.3441, 22.7697, 0.291327)
 material = SubResource("StandardMaterial3D_hn15i")
 
 [node name="DialogActivator" type="Node" parent="."]
@@ -179,3 +196,15 @@ metadata/_custom_type_script = "uid://becl4w7bt63a8"
 
 [node name="Ore" parent="." instance=ExtResource("11_i3c8t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0854024, -9.04532, -0.204479)
+
+[node name="Ore2" parent="." instance=ExtResource("11_i3c8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.140436, -14.5017, 0.991129)
+
+[node name="Ore3" parent="." instance=ExtResource("11_i3c8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21704, -20.8806, 0.183281)
+
+[node name="Ore4" parent="." instance=ExtResource("11_i3c8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21704, -26.3888, 0.183281)
+
+[node name="Ore5" parent="." instance=ExtResource("11_i3c8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21704, -36.8921, 0.183281)
