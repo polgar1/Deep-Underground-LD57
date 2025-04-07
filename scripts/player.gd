@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 	else:
 		direction.y = -15
 	
-	if Input.is_action_just_released("Interact"):
-		dying = true
+	#if Input.is_action_just_released("Interact"):
+		#dying = true
 	
 	velocity.y = direction.y * speed * delta
 	

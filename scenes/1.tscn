@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cm3nglnbu6odo"]
+[gd_scene load_steps=28 format=3 uid="uid://cm3nglnbu6odo"]
 
 [ext_resource type="AudioStream" uid="uid://bhcaq6n0s0jsg" path="res://audio/dripping-water-in-cave-114694.mp3" id="1_8xfph"]
 [ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="1_me8dt"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dlcegca6gdfk" path="res://textures/Rock031_4K_Roughness.png" id="9_i3c8t"]
 [ext_resource type="PackedScene" uid="uid://dcgyslepfxrqb" path="res://prefabs/ore.tscn" id="11_i3c8t"]
 [ext_resource type="Script" uid="uid://dtmbkjiuree58" path="res://scripts/scene_changer.gd" id="12_hn15i"]
+[ext_resource type="PackedScene" uid="uid://daf3p6hiop2n7" path="res://prefabs/audio_area.tscn" id="14_2dibf"]
+[ext_resource type="AudioStream" uid="uid://668tk5woctio" path="res://audio/cave-monster-43826.mp3" id="15_cfl4u"]
 
 [sub_resource type="Animation" id="Animation_6x81b"]
 resource_name = "water"
@@ -104,6 +106,9 @@ normal_texture = ExtResource("8_2bibm")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
 texture_filter = 0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2y1k"]
+size = Vector3(1.8446, 1, 1)
+
 [node name="1" type="Node3D"]
 
 [node name="Background" type="AnimationPlayer" parent="."]
@@ -157,9 +162,12 @@ shape = SubResource("BoxShape3D_8xfph")
 
 [node name="Player" parent="." instance=ExtResource("2_gafq4")]
 transform = Transform3D(-0.21349, 0, 0.976945, 0, 1, 0, -0.976945, 0, -0.21349, 1.5006, -4.5347, 0.046232)
+speed = 50
 
 [node name="DeathArea" parent="." instance=ExtResource("6_31rim")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07188, -41.3167, 0)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(6.40966, 0, 0, 0, 1, 0, 0, 0, 1, 2.39282, -1210.32, -3.46622)
@@ -219,5 +227,21 @@ script = ExtResource("12_hn15i")
 nextScene = "uid://cbso5npy4gv2d"
 requiredX = 2
 metadata/_custom_type_script = "uid://dtmbkjiuree58"
+
+[node name="AudioArea" parent="." node_paths=PackedStringArray("audio") instance=ExtResource("14_2dibf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.904301, -20.6351, 0)
+collision_layer = 0
+collision_mask = 4
+audio = NodePath("../AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AudioArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422302, -0.651421, 0)
+shape = SubResource("BoxShape3D_e2y1k")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64595, -20.4849, 0.182471)
+stream = ExtResource("15_cfl4u")
+volume_db = 80.0
+panning_strength = 3.0
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
