@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var anim : AnimationPlayer = $Player/AnimationPlayer
 @onready var movement_audio : AudioStreamPlayer3D = $AudioStreamPlayer3D
 var dying : bool
+var game_over := preload("res://scenes/game_over.tscn")
 
 func _ready() -> void:
 	#Shader is disabled in the editor because it messes up things
@@ -21,9 +22,6 @@ func _process(delta: float) -> void:
 	else:
 		direction.y = -15
 	
-	#if Input.is_action_just_released("Interact"):
-		#dying = true
-	
 	velocity.y = direction.y * speed * delta
 	
 	if velocity.y and not dying:
@@ -40,5 +38,8 @@ func _process(delta: float) -> void:
 	
 	if Global.x == 404:
 		dying = true
+		Global.x = 0
+		await get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_packed(game_over)
 	
 	move_and_slide()

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ludum Dare 57"
-run/main_scene="uid://cm3nglnbu6odo"
+run/main_scene="uid://r6b415csogn6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ Global="*res://scripts/Global.gd"
 [dialogic]
 
 directories/dch_directory={
+"Creator": "res://dialogic/Creator.dch",
 "Radio": "res://dialogic/Radio.dch",
 "Reporter": "res://dialogic/Reporter.dch",
 "You": "res://dialogic/You.dch"
@@ -31,14 +32,17 @@ directories/dtl_directory={
 "cutscene1": "res://dialogic/cutscene1.dtl",
 "day1": "res://dialogic/day1.dtl",
 "day1finish": "res://dialogic/day1finish.dtl",
-"death": "res://dialogic/death.dtl"
+"day2": "res://dialogic/day2.dtl",
+"day2finish": "res://dialogic/day2finish.dtl",
+"death": "res://dialogic/death.dtl",
+"finishj": "res://dialogic/finishj.dtl"
 }
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-window/size/mode=2
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor_plugins]

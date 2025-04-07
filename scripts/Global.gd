@@ -1,5 +1,6 @@
 extends Node
 
+var current_day : int= 1
 #variable used for triggering events
 var x : int = 0
 func setX(value : int):

@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd4le01gik555"]
+
+[ext_resource type="Script" uid="uid://cqt3xv7bvrpry" path="res://scenes/links.gd" id="1_wtlte"]
+
+[node name="links" type="Node2D"]
+script = ExtResource("1_wtlte")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 684.0
+offset_bottom = 489.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 157.0
+offset_top = 53.0
+offset_right = 496.0
+offset_bottom = 158.0
+text = "WISHLIST"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 160.0
+offset_top = 243.0
+offset_right = 499.0
+offset_bottom = 348.0
+text = "EXIT
+"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Button2" to="." method="_on_button_2_button_up"]

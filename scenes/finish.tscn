@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://fuwu8e1aiw5u"]
+
+[ext_resource type="PackedScene" uid="uid://3p3yrfnjohp7" path="res://prefabs/canvas_layer.tscn" id="1_2pftv"]
+[ext_resource type="Script" uid="uid://becl4w7bt63a8" path="res://scripts/dialog_activator.gd" id="1_07gpw"]
+[ext_resource type="Script" uid="uid://dtmbkjiuree58" path="res://scripts/scene_changer.gd" id="2_2pftv"]
+
+[node name="Finish" type="Node2D"]
+
+[node name="Canvas" parent="." instance=ExtResource("1_2pftv")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 743.0
+offset_bottom = 498.0
+color = Color(0, 0, 0, 1)
+
+[node name="DialogActivator" type="Node" parent="."]
+script = ExtResource("1_07gpw")
+timer = 0.5
+dialogic_timeline = "finishj"
+metadata/_custom_type_script = "uid://becl4w7bt63a8"
+
+[node name="SceneChanger" type="Node" parent="."]
+script = ExtResource("2_2pftv")
+nextScene = "uid://bd4le01gik555"
+requiredX = 1
+metadata/_custom_type_script = "uid://dtmbkjiuree58"
